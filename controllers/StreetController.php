@@ -13,6 +13,25 @@ use yii\filters\AccessControl;
 class StreetController extends Controller
 {
     /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
      * Lists all Street models.
      * @return mixed
      */
